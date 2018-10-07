@@ -1,0 +1,13 @@
+[Unit]
+Description=GPIO Server Service
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/gpio-server
+ExecStart=/usr/bin/npm start
+Restart=on-failure
+User=root
+Environment=PORT=8080
+
+[Install]
+WantedBy=multi-user.target
