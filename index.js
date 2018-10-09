@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT
 
+let currentState = 'init';
+
 app.get('/ping', (req, res) => {
     currentState = 'changeCircuit';
     res.send('pong');
@@ -24,8 +26,6 @@ const flowStates = [
         name: 'end'
     }
 ];
-
-let currentState = 'init';
 
 // Loop
 const flowInterval = setInterval(() => {
