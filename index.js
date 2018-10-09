@@ -25,7 +25,7 @@ const flowStates = [
     }
 ];
 
-const currentState = 'init';
+let currentState = 'init';
 
 // Loop
 const flowInterval = setInterval(() => {
