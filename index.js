@@ -2,8 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = process.env.PORT
-
-let currentState = 'init';
+const machineHandler = require('./lib/machine-handler').create({
+    'loopInterval': 200
+});
 
 app.get('/ping', (req, res) => {
     currentState = 'changeCircuit';
@@ -14,35 +15,5 @@ app.listen(port, () => {
     console.log(`Server listen on port ${port}!`);
 });
 
-// Init state
-const flowStates = [
-    {
-        name: 'init'
-    },
-    {
-        name: 'changeCircuit'
-    },
-    {
-        name: 'end'
-    }
-];
-
-// Loop
-const flowInterval = setInterval(() => {
-
-    switch (currentState) {
-        case 'init':            
-            break;        
-        case 'changeCircuit':
-            console.log('state -> changeCircuit');            
-            currentState = 'init';
-            break;
-    }
-
-}, 500);
-
-function shutdown() { 
-    clearInterval(flowInterval);
-};
-
-process.on('SIGINT', shutdown);
+machineHandler.start();
+process.on('SIGINT', machineHandler.shutdown);
