@@ -12,5 +12,10 @@ module.exports.create = (express, machineHandler) => {
         res.send(circuit);
     });
 
+    router.get('/terminateCircuit', (req, res) => {
+        machineHandler.terminateCircuit();
+        res.send('circuit terminated');
+    });
+
     return router;
 }
