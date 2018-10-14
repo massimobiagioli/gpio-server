@@ -17,5 +17,11 @@ module.exports.create = (express, machineHandler) => {
         res.send('circuit terminated');
     });
 
+    router.get('/doAction/:action', (req, res) => {
+        let action = req.params.action;
+        machineHandler.doAction(action);
+        res.send(`action sent: ${action}`);
+    });
+
     return router;
 }
