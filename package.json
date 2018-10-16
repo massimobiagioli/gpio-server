@@ -9,8 +9,8 @@
   "author": "Massimo Biagioli",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^6.0.0",
-    "express": "^4.16.3",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
     "winston": "^3.1.0"
   }
 }
