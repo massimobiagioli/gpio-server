@@ -1,0 +1,10 @@
+.grid-title {
+    margin: 5px 5px;
+    font-weight: 400;
+    font-size: 1.3em;
+    border-bottom: 2px solid black;
+}
+
+.grid-container {
+    margin: 5px 5px;
+}

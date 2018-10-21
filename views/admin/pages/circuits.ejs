@@ -3,18 +3,40 @@
     <head>
         <% include ../partials/head %>
     </head>
-    <body class="container-fluid">
+    <body class="container">
         
         <!-- main -->
         <main>
             <% include ../partials/header %>
 
-            <div class="row">
-                circuits
+            <div class="row grid-title">
+                Circuiti
+            </div>
+            <div class="row grid-container">
+                <table id="circuits_grid" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Descrizione</th>
+                            <th>Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Dummy</td>
+                            <td>
+                                <span><a href="#">Modifica</a></span> |
+                                <span><a href="#">Elimina</a></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
         </main>
 
         <% include ../partials/footer %>
+        <script type="text/javascript" src="/public/js/circuits.js"></script>
     </body>
 </html>

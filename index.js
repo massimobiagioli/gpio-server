@@ -15,6 +15,7 @@ app.use('/api', apiRoutes);
 app.use('/', adminRoutes);
 
 // Init middlewares
+app.use('/public', express.static('public'));
 app.set('view engine', 'ejs');
 
 // Start server
