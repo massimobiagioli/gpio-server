@@ -4,7 +4,8 @@
   "description": "GPIO Server",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "live": "nodemon index.js"
   },
   "author": "Massimo Biagioli",
   "license": "ISC",

@@ -1,4 +1,5 @@
 require('dotenv').config();
+const nodemon = require('nodemon');
 const express = require('express');
 const logger = require('./lib/logger');
 const app = express();
@@ -23,4 +24,19 @@ app.listen(port, () => {
 
 // Init cycle
 machineHandler.start();
-process.on('SIGINT', machineHandler.shutdown);
+
+// Handle process events
+process
+
+    // Handle normal exits
+    .on('exit', (code) => {
+        nodemon.emit('quit');
+        process.exit(code);
+    })
+
+    // Handle CTRL+C
+    .on('SIGINT', () => {
+        machineHandler.shutdown;
+        nodemon.emit('quit');
+        process.exit(0);
+    });
